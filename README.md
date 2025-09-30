@@ -22,7 +22,6 @@ You will be creating or modifying an Android shell project and an associated bas
 ### **Phase 1: Engine Caching and Initialization**
 
 1.  **Initialize the Flutter Engine:** As soon as the native application starts, modify the Android application logic (e.g., in a custom `Application` class) to eagerly **initialize and cache** a single instance of the `FlutterEngine`.
-2.  **Engine Name:** The cached engine instance **MUST** be named `my_cached_engine`.
 
 ### **Phase 2: UI and Route Setup**
 
@@ -44,7 +43,7 @@ The two buttons on the native Kotlin activity must launch the Flutter environmen
 
 ---
 
-## 提交 Submission Guidelines
+## Submission Guidelines
 
 1.  **Repository Setup:** Fork this challenge repository or create a new one to host your solution.
 2.  **Commit Quality:** Maintain a clean, logical, and descriptive commit history detailing the steps taken.
