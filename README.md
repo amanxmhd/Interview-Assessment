@@ -3,6 +3,9 @@
 ## Project Goal
 The primary objective of this challenge is to assess your ability to implement a robust **hybrid mobile application** architecture. You will be tasked with integrating and managing a persistent **Flutter Engine** within a **Native Android (Kotlin)** application, demonstrating lifecycle management and seamless native-to-Flutter navigation using specific routes.
 
+## Important notes
+From the time this link has been sent to you, you have 1 week to complete this task. If possible try to complete it in one sitting rather than across multuple days. It should take at most 3 hours.
+
 ---
 
 ## Prerequisites
