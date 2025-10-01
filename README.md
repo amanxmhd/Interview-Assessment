@@ -13,8 +13,6 @@ To successfully complete this project, please ensure you have the following tool
 
 1.  **Development Environment:** **Android Studio** (Dolphin or later) installed.
 2.  **SDKs:** **Flutter SDK** (v3.19 or later) installed and configured for your environment.
-3.  **Language Proficiency:** Strong knowledge of **Kotlin** (minimum v1.8).
-4.  **Framework Familiarity:** Experience working with the Flutter **`FlutterEngine`** and **`FlutterActivity`** classes.
 
 ---
 
