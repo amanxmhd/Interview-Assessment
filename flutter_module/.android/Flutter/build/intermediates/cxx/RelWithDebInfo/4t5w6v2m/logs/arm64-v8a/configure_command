@@ -1,0 +1,19 @@
+/Users/aman/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/aman/flutter/packages/flutter_tools/gradle/src/main/scripts \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=21 \
+  -DANDROID_PLATFORM=android-21 \
+  -DANDROID_ABI=arm64-v8a \
+  -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+  -DANDROID_NDK=/Users/aman/Library/Android/sdk/ndk/26.3.11579264 \
+  -DCMAKE_ANDROID_NDK=/Users/aman/Library/Android/sdk/ndk/26.3.11579264 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/aman/Library/Android/sdk/ndk/26.3.11579264/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/aman/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/aman/Interview-Assessment/flutter_module/.android/Flutter/build/intermediates/cxx/RelWithDebInfo/4t5w6v2m/obj/arm64-v8a \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/aman/Interview-Assessment/flutter_module/.android/Flutter/build/intermediates/cxx/RelWithDebInfo/4t5w6v2m/obj/arm64-v8a \
+  -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+  -B/Users/aman/Interview-Assessment/flutter_module/.android/Flutter/.cxx/RelWithDebInfo/4t5w6v2m/arm64-v8a \
+  -GNinja \
+  -Wno-dev \
+  --no-warn-unused-cli

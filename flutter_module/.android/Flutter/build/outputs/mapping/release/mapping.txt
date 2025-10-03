@@ -1,0 +1,9 @@
+# compiler: R8
+# compiler_version: 8.7.18
+# common_typos_disable
+# {"id":"com.android.tools.r8.mapping","version":"2.2"}
+# pg_map_id: 529f058
+# pg_map_hash: SHA-256 529f058854da2218043758bb5d01fd324b7ae1ff0f618246ab7ccae4b0025fe1
+io.flutter.plugins.GeneratedPluginRegistrant -> io.flutter.plugins.GeneratedPluginRegistrant:
+# {"id":"sourceFile","fileName":"GeneratedPluginRegistrant.java"}
+    1:1:void <init>():15:15 -> <init>

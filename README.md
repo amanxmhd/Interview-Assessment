@@ -1,67 +1,114 @@
-# 🚀 Hybrid Integration Challenge: Native Kotlin to Flutter
+# Hybrid Android-Kotlin & Flutter App
 
-## Project Goal
-The primary objective of this challenge is to assess your ability to implement a robust **hybrid mobile application** architecture. You will be tasked with integrating and managing a persistent **Flutter Engine** within a **Native Android (Kotlin)** application, demonstrating lifecycle management and seamless native-to-Flutter navigation using specific routes.
+This project demonstrates a **hybrid mobile application** where a native Android Kotlin app integrates a **cached Flutter engine** to launch Flutter screens (`HomePage` and `DetailPage`) without recreating the engine. The app allows seamless navigation from native buttons to Flutter routes and back.
 
-## Important notes
-From the time this link has been sent to you, you have 1 week to complete this task. If possible try to complete it in one sitting rather than across multuple days. It should take at most 3 hours.
+---
+
+## Project Overview
+
+- **Native MainActivity**: The landing screen in Kotlin with two buttons:
+  - **Home Page** → Opens Flutter `HomePage` (`/`)
+  - **Detail Page** → Opens Flutter `DetailPage` (`/detail`)
+- **Flutter Module**: Contains two screens:
+  - `HomePage` → Default route (`/`)
+  - `DetailPage` → Named route (`/detail`)
+- **Engine Caching**: Only one instance of `FlutterEngine` (`my_cached_engine`) is created and reused for all navigations.
+- **Back Navigation**: Pressing the back arrow in Flutter screens returns to the native MainActivity.
 
 ---
 
 ## Prerequisites
-To successfully complete this project, please ensure you have the following tools and knowledge:
 
-1.  **Development Environment:** **Android Studio** (Dolphin or later) installed.
-2.  **SDKs:** **Flutter SDK** (v3.19 or later) installed and configured for your environment.
-
----
-
-## 🛠️ Task Description (Deliverables)
-
-You will be creating or modifying an Android shell project and an associated basic Flutter module.
-
-### **Phase 1: Engine Caching and Initialization**
-
-1.  **Initialize the Flutter Engine:** As soon as the native application starts, modify the Android application logic (e.g., in a custom `Application` class) to eagerly **initialize and cache** a single instance of the `FlutterEngine`.
-
-### **Phase 2: UI and Route Setup**
-
-1.  **Native UI:** Create a single native Kotlin `Activity` (the main landing page) that hosts **two distinct `Button` elements**.
-2.  **Flutter Module:** Create a simple Flutter module containing two separate screens/widgets:
-    * **`HomePage`:** Maps to the default route (`/`).
-    * **`DetailPage`:** Maps to the named route (`/detail`).
-
-### **Phase 3: Native-to-Flutter Navigation**
-
-The two buttons on the native Kotlin activity must launch the Flutter environment using the **cached engine** (`my_cached_engine`), navigating directly to the specified Flutter route.
-
-| Button Label | Action Required | Flutter Route Target | Purpose |
-| :--- | :--- | :--- | :--- |
-| **Open Home** | Launch Flutter Activity | **`/` (HomePage)** | Test default route launch. |
-| **Open Detail** | Launch Flutter Activity | **`/detail` (DetailPage)** | Test named route launch. |
-
-**Key Requirement:** The solution **must reuse** the pre-initialized and cached `my_cached_engine` for both navigation actions to avoid engine recreation.
+- Android Studio (Dolphin or later)  
+- Flutter SDK v3.19 or later  
+- Kotlin 1.9+  
+- JDK 11+  
 
 ---
 
-## Submission Guidelines
+## Project Structure
 
-1.  **Repository Setup:** Fork this challenge repository or create a new one to host your solution.
-2.  **Commit Quality:** Maintain a clean, logical, and descriptive commit history detailing the steps taken.
-3.  **Final State:** Ensure the final, runnable code is pushed to the main branch (`main` or `master`).
-4.  **Instructions:** Include clear instructions in the `README.md` on how to **run and test the application** from a clean checkout (e.g., "how to link the Flutter module," "build steps").
+```
+
+hybrid_android_flutter/
+│
+├── android_app/                     # Native Android app (Kotlin)
+│   └── src/
+│       └── main/...
+│
+├── flutter_module/                  # Flutter module
+│   ├── lib/
+│   │   └── pages/
+│   │       ├── home_page.dart
+│   │       └── detail_page.dart
+│   │
+│   ├── pubspec.yaml
+│   │
+│   └── build/
+│       └── host/
+│           └── outputs/
+│               └── repo/
+│                   └── com/example/flutter_module/
+│                       ├── flutter_debug/...      # Debug AAR
+│                       ├── flutter_profile/...    # Profile AAR
+│                       └── flutter_release/...    # Release AAR
+│
+└── README.md
+
+````
+
+## Setup & Build Instructions
+
+### 1. Clone the Repository
+```bash
+git clone <your-repo-url>
+cd Interview-Assessment 
+````
+
+### 2. Ensure Flutter Module is Linked
+
+Open `android_app/settings.gradle` and include:
+
+```gradle
+rootProject.name = "HybridApp"
+include(":app")
+
+```
+
+> This ensures the Android project recognizes the Flutter module.
+
+### 3. Build the Flutter Module
+
+```bash
+cd flutter_module
+flutter pub get
+flutter build aar
+```
+
+### 4. Run the Android App
+
+* Open `android_app` in Android Studio
+* Build and run on an emulator or device
+* The app shows **MainActivity** with two buttons:
+
+    * **Home Page** → Opens Flutter `HomePage`
+    * **Detail Page** → Opens Flutter `DetailPage`
 
 ---
 
-## 📊 Evaluation Criteria
+## Navigation Behavior
 
-Your solution will be thoroughly assessed based on the following weighted criteria:
+* Clicking a **native button** launches Flutter via the cached engine.
+* **Back button** on Flutter screens returns to the native MainActivity.
+* Switching between Flutter routes does not recreate the engine.
 
-| Criteria | Weight | Focus Area |
-| :--- | :--- | :--- |
-| **Engine Caching** | **40%** | Correct initialization of the `my_cached_engine` on startup and its subsequent reuse by both native buttons. |
-| **Correct Routing** | **30%** | Successful launch of the Flutter environment to the default route (`/`) and the specific named route (`/detail`) via the native buttons. |
-| **Code Quality** | **20%** | Readability, adherence to Kotlin and Dart best practices, clear separation of platform-specific and framework logic, and modern API usage. |
-| **Documentation** | **10%** | Clarity of inline comments for complex logic and thoroughness of submission/running instructions. |
+---
 
-Good luck! We look forward to seeing how you handle this modern mobile development scenario.
+## Key Features
+
+1. **Single Cached Flutter Engine** (`my_cached_engine`) for all navigations
+2. **Native-to-Flutter Routing** using `MethodChannel`
+3. **Correct Back Navigation** to return to native activity
+4. **Clean separation** between native and Flutter code
+
+---
