@@ -61,23 +61,13 @@ hybrid_android_flutter/
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/amanxmhd/Interview-Assessment.git
 cd Interview-Assessment 
-````
-
-### 2. Ensure Flutter Module is Linked
-
-Open `android_app/settings.gradle` and include:
-
-```gradle
-rootProject.name = "HybridApp"
-include(":app")
-
 ```
 
 > This ensures the Android project recognizes the Flutter module.
 
-### 3. Build the Flutter Module
+### 2. Build the Flutter Module
 
 ```bash
 cd flutter_module
@@ -85,9 +75,9 @@ flutter pub get
 flutter build aar
 ```
 
-### 4. Run the Android App
+### 3. Run the Android App
 
-* Open `android_app` in Android Studio
+* Open project in Android Studio
 * Build and run on an emulator or device
 * The app shows **MainActivity** with two buttons:
 
@@ -112,3 +102,8 @@ flutter build aar
 4. **Clean separation** between native and Flutter code
 
 ---
+
+## Video Recording 
+[Watch Demo Video](https://drive.google.com/file/d/1JhM7BL5v6Jz4YwzqtuvPvqe0B2vsgffU/view?usp=sharing)
+
+
